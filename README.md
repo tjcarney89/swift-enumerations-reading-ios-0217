@@ -63,7 +63,7 @@ playerDidMove(.Right)
 // prints "Player has moved right 👑."
 ```
 
-* I think we should show them how Enum's can have functions and computed properties but NOT Stored properties stressing the point that we're just making another type like a Class.. except it can't do all the things a class can do.
+* I think we should show them how Enum's can have functions and computed properties but NOT Stored properties stressing the point that we're just making another type like a Class.. except it can't do all the things a class can do. Maybe separate out the logic from that global function created above to be part of the `Direction` enum itself.
 
 * Should we show them that enum's can be backed by Raw Values... is that too much to cover in one reading? Maybe we direct them to read Apples chapter on ENums or direct them to check out documentation to explore the topic more deeply or is that a cop out? Willing to discuss.
 
