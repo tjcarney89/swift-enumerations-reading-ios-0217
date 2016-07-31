@@ -2,14 +2,12 @@
 
 ![NameOfPerson](http://i.imgur.com/Oa3eJLw.jpg?1)  
 
-> Tweet -[Bird](https://en.wikipedia.org/wiki/Bird) 
+> Tweet ~[Bird](https://en.wikipedia.org/wiki/Bird)
  
 
 ## Learning Objectives
 
-* 
-
-
+* FILL IN!
 
 ## Outline / Notes
 
