@@ -4,10 +4,16 @@
 
 > Tweet ~[Bird](https://en.wikipedia.org/wiki/Bird)
  
+## Overview
+
+We'll cover enums which introduce a new type and are very useful in Swift programming when you're working with a limited set of values.
 
 ## Learning Objectives
 
-* FILL IN!
+* Define enums, and distinguish them from classes
+* Explain the syntax of enums
+* Use enums within functions
+* Add computed properties and methods to enums
 
 ## Directions
 
