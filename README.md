@@ -20,7 +20,7 @@ We'll cover enums which introduce a new type and are very useful in Swift progra
 Imagine you're creating a simple top-down game where the player controls a little character that can move around a map. It's a pretty simple game, so the character can only move up, down, left, or right. You probably have some sort of game controller that includes a method that could look something like this:
 
 ```swift
-func playerDidMove(direction: String) {
+func playerDidMove(_ direction: String) {
     print("Player moved \(direction)")
 }
 
@@ -31,7 +31,7 @@ playerDidMove("up")
 Great! The problem is, some directions are invalid. What if a player tries to move diagonally?
 
 ```swift
-func playerDidMove(direction: String) {
+func playerDidMove(_ direction: String) {
     print("Player moved \(direction)")
 }
 
@@ -42,7 +42,7 @@ playerDidMove("diagonally up")
 Oh no! The game doesn't actually support diagonal movement, so in your game, you probably haven't handled this movement direction. It would make sense, then, to check the `direction` parameter to make sure the directions are valid. You could modify `playerDidMove(_:)` to check the `String` that is passed in:
 
 ```swift
-func playerDidMove(direction: String) {
+func playerDidMove(_ direction: String) {
     if direction == "up" ||
        direction == "down" ||
        direction == "left" ||
@@ -87,47 +87,46 @@ Creating an enum to specify directions is pretty easy:
 
 ```swift
 enum Direction {
-    case Up
-    case Down
-    case Left
-    case Right
+    case up
+    case down
+    case left
+    case right
 }
 ```
 
 That looks a bit like a class definition, doesn't it? The main difference is that the type is declared using the `enum` keyword instead of `class`. Furthermore, in the body, the allowed types are specified using the `case` keyword.
 
-This declaration introduces a new type called `Direction`. `Direction` constants and variables can have one of four values: `Up`, `Down`, `Left`, and `Right`. It cannot contain _any_ other values, which ensures that you never use an invalid `Direction` anywhere.
+This declaration introduces a new type called `Direction`. `Direction` constants and variables can have one of four values: `up`, `down`, `left`, and `right`. It cannot contain _any_ other values, which ensures that you never use an invalid `Direction` anywhere.
 
-Declaring constants and values of type `Direction` isn't different from any other declaration. Here's how you can declare a constant called `direction1` and assign the `Direction` value `Up`:
+Declaring constants and values of type `Direction` isn't different from any other declaration. Here's how you can declare a constant called `direction1` and assign the `Direction` value `up`:
 
 ```swift
-let direction1 = Direction.Up
+let direction1 = Direction.up
 ```
 
-Notice that `direction1` is assigned the value `Direction.Up`. `Direction.Up` is the full name of the `Up` value.
+Notice that `direction1` is assigned the value `Direction.up`. `Direction.up` is the full name of the `up` value.
 
 That's a lot to type, so Swift allows a shorthand: If you explicitly declare the type of the constant or variable, you can leave off the enum's name (`Direction`) when assigning that value:
 
 ```swift
-let direction2: Direction = .Down
+let direction2: Direction = .down
 ```
 
-Since Swift knows `direction2` is of type `Direction`, you can simply assign the value `.Down`.
+Since Swift knows `direction2` is of type `Direction`, you can simply assign the value `.down`.
 
 You can see how this works in the playground file included in this repo. Start creating a constant. You can see as you type `Direction.`, the valid values will pop up in Xcode's autocomplete:
 
-![Enum autocomplete](https://s3.amazonaws.com/learn-verified/enum-autocomplete.png)
+
 
 <kbd>Option</kbd>-clicking on the constant also shows that the type is inferred to be `Direction`:
 
-![Enum type popup](https://s3.amazonaws.com/learn-verified/enum-type.png)
 
 ### Using Enums
 
-Let's rewrite `playerDidMove(_:)` so it takes a `Direction` parameter, instead of a string. Your new function definition might look like this:
+Let's rewrite `playerDidMove(_:)` so it takes a `Direction` parameter, instead of a `String`. Your new function definition might look like this:
 
 ```swift
-func playerDidMove(direction: Direction) {
+func playerDidMove(_ direction: Direction) {
     print("Player moved \(direction)")
 }
 ```
@@ -137,25 +136,25 @@ That's much less code! Thanks to the `Direction` enum, you _know_ you won't be g
 Calling this function is pretty easy:
 
 ```swift
-playerDidMove(.Left)
-// prints "Player moved Left"
+playerDidMove(.left)
+// prints "Player moved left"
 ```
 
-Notice, again, that you can just pass `.Left` instead of `Direction.Left`, since Swift knows that the parameter is of type `Direction`.
+Notice, again, that you can just pass `.left` instead of `Direction.left`, since Swift knows that the parameter is of type `Direction`.
 
 You can also pass constants and variables of type `Direction` as you'd expect:
 
 ```swift
-let direction1 = Direction.Up
-let direction2: Direction = .Down
-var direction3: Direction = .Right
+let direction1 = Direction.up
+let direction2: Direction = .down
+var direction3: Direction = .right
 
 playerDidMove(direction1)
-// prints "Player moved Up"
+// prints "Player moved up"
 playerDidMove(direction2)
-// prints "Player moved Down"
+// prints "Player moved down"
 playerDidMove(direction3)
-// prints "Player moved Right"
+// prints "Player moved right"
 ```
 
 ### Properties and Methods
@@ -168,20 +167,20 @@ Adding a computed property or method to an enum is the same as adding a property
 
 ```swift
 enum Direction {
-    case Up
-    case Down
-    case Left
-    case Right
+    case up
+    case down
+    case left
+    case right
 
     var excited: String {
         switch self {
-        case .Up:
+        case .up:
             return "UP"
-        case .Down:
+        case .down:
             return "DOWN"
-        case .Left:
+        case .left:
             return "LEFT"
-        case .Right:
+        case .right:
             return "RIGHT"
         }
     }
@@ -199,7 +198,7 @@ func playerDidMove(direction: Direction) {
     print("Player moved \(direction.excited)")
 }
 
-playerDidMove(.Left)
+playerDidMove(.left)
 // prints "Player moved LEFT"
 ```
 
