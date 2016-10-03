@@ -1,4 +1,4 @@
-func playerDidMove_String(direction: String) {
+func playerDidMove(_ direction: String) {
     if direction == "up" ||
        direction == "down" ||
        direction == "left" ||
@@ -9,40 +9,40 @@ func playerDidMove_String(direction: String) {
     }
 }
 
-playerDidMove_String("up")
-playerDidMove_String("left")
-playerDidMove_String("dwn")
-playerDidMove_String("Up")
+playerDidMove("up")
+playerDidMove("left")
+playerDidMove("dwn")
+playerDidMove("Up")
 
 
 
 enum Direction {
-    case Up
-    case Down
-    case Left
-    case Right
+    case up
+    case down
+    case left
+    case right
 
     var excited: String {
         switch self {
-        case .Up:
+        case .up:
             return "UP"
-        case .Down:
+        case .down:
             return "DOWN"
-        case .Left:
+        case .left:
             return "LEFT"
-        case .Right:
+        case .right:
             return "RIGHT"
         }
     }
 }
 
-let direction1 = Direction.Up
-let direction2: Direction = .Down
-var direction3: Direction = .Right
+let direction1 = Direction.up
+let direction2: Direction = .down
+var direction3: Direction = .right
 
-let direction = Direction.Left
+let direction = Direction.left
 
-func playerDidMove(direction: Direction) {
+func playerDidMove(_ direction: Direction) {
     print("Player moved \(direction.excited)")
 }
 
@@ -50,4 +50,4 @@ playerDidMove(direction1)
 playerDidMove(direction2)
 playerDidMove(direction3)
 
-playerDidMove(.Left)
+playerDidMove(.left)
