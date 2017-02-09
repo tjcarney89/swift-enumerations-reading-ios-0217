@@ -51,3 +51,5 @@ playerDidMove(direction2)
 playerDidMove(direction3)
 
 playerDidMove(.left)
+
+//COMPLETED READING
